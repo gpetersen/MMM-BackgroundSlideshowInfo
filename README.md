@@ -35,17 +35,19 @@ modules: [
       transitionImages: true,
       randomizeImageOrder: true
     }
+	}
+	
+  {
+    module: 'MMM-BackgroundSlideshowInfo',
+    position: 'bottom_bar',
+    config: {
+			//...TODO Add more config options
+    }
   }
+
 ];
 
-	{
-		module: 'MMM-BackgroundSlideshowInfo',
-		position: 'bottom_bar',
-		config: {
-			...
-		}
 
-	}
 ```
 TODO: Edit below
 

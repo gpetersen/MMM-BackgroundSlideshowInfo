@@ -1,0 +1,27 @@
+{
+  "name": "mmm-backgroundslideshowinfo",
+  "version": "0.2.0",
+  "description": "MagicMirror module to show metadata from MMM-BackgroundSlideshow images",
+  "main": "MMM-BackgroundSlideshowInfo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gpetersen/MMM-BackgroundSlideshowInfo.git"
+  },
+  "keywords": [
+    "MagicMirror",
+    "backgroundslideshow",
+    "exif"
+  ],
+  "author": "gpetersen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gpetersen/MMM-BackgroundSlideshowInfo/issues"
+  },
+  "homepage": "https://github.com/gpetersen/MMM-BackgroundSlideshowInfo#readme",
+  "dependencies": {
+    "exif": "^0.6.0"
+  }
+}

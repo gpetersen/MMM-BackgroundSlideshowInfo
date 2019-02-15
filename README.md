@@ -34,7 +34,11 @@ modules: [
     header: "Picture Info",
     position: 'bottom_bar',
     config: {
-      //...TODO Add more config options
+       ignoreFolderNames: ['modules','pictures','MMM-BackgroundSlideshow']
+			 geonameUser: "xyz",
+       //showCustom: ['image.Model','exif.ISO','exif.DateTimeOriginal'],
+       showFolderNames: true,
+       showFileName: false,
     }
   }
 ];
@@ -48,7 +52,6 @@ TODO: Add issues
 
 ## Configuration options
 
-TODO: Add config options
 The following properties can be configured:
 
 <table width="100%">

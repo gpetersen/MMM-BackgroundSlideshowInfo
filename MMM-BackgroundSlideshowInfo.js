@@ -168,21 +168,25 @@ Module.register("MMM-BackgroundSlideshowInfo",{
             }
         }
 
+        var gotExifData = !this.exifData.error;
         if(this.config.showCreateDate){
-            //formatDate: "YYYY MMMM Do",
-            var date = this.parseExifDate(this.exifData.exif.DateTimeOriginal);
             var dateDiv = document.getElementById("BGSS_DATE");
-            dateDiv.innerHTML = this.config.createDateLabel + moment(date).format(this.config.formatDate);
+            if(gotExifData){
+                //formatDate: "YYYY MMMM Do",
+                var date = this.parseExifDate(this.exifData.exif.DateTimeOriginal);
+                dateDiv.innerHTML = this.config.createDateLabel + moment(date).format(this.config.formatDate);
+            }
+            else{ dateDiv.innerHTML = ""; }
         }
 
         if(this.config.showMake || this.config.showModel){
             var makeModel = document.getElementById("BGSS_MAKEMODEL");
             makeModel.innerHTML = "";
             if(this.config.showMake){
-                makeModel.innerHTML = this.exifData.image.Make;
+                makeModel.innerHTML = this.extract('image.Make',this.exifData) + " "; //this.exifData.image.Make;
             }
             if(this.config.showModel){
-                makeModel.innerHTML += this.exifData.image.Model;
+                makeModel.innerHTML += this.extract('image.Model',this.exifData); //this.exifData.image.Model;
             }
         }
         
@@ -196,7 +200,7 @@ Module.register("MMM-BackgroundSlideshowInfo",{
                     var geoname = geonames[key];
                     for(configIndex in this.config.showGPSFields){
                         var configKey = this.config.showGPSFields[configIndex];
-                        var value = this.extract(configKey,geoname);
+                        var value = this.extract(configKey,geoname) + " ";
                         locationInfo = locationInfo + value;
                     }
                 }

@@ -36,14 +36,20 @@ module.exports = NodeHelper.create({
         try {
             new ExifImage({ image : imagePath }, function (error, exifDataNew) { // This is where the Error mentioned above would fire.
                 if (error){
-                    console.log('Error: '+ error.message);
+                    console.log('[BACKGROUNDSLIDESHOWINFO] Error loading EXIF data: '+ error.message);
                     this.exifData = "";
-                    return;
+                    exifDataNew = {};
+                    exifDataNew.folderNames = folderNames;
+                    exifDataNew.error = true;
+                    self.sendSocketNotification('BACKGROUNDSLIDESHOWINFO_EXIFDATA', exifDataNew);
+                    self.exifData = exifDataNew;
+                    //return;
                 }
                 else{
-                    console.log("[BACKGROUNDSLIDESHOWINFO] helper successfully loaded EXIF data for " + imagePath); //+ JSON.stringify(exifData) );
+                    console.log("[BACKGROUNDSLIDESHOWINFO] helper successfully loaded EXIF data");
                     //console.log("[BACKGROUNDSLIDESHOWINFO] helper successfully loaded EXIF data: " + JSON.stringify(exifDataNew) );
                     exifDataNew.folderNames = folderNames;
+                    exifDataNew.error = false;
                     self.sendSocketNotification('BACKGROUNDSLIDESHOWINFO_EXIFDATA', exifDataNew);
                     self.exifData = exifDataNew;
                     self.getGeoNameData(exifDataNew);

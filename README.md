@@ -12,6 +12,8 @@ This module is dependant on `node-exif` to read the EXIF data from the image fil
 Run: 'npm i exif' to install `node-exif`.
 The image directories must also be accessible to the Magic Mirror instance.
 
+Alternatively, you should be able to simply run 'npm i' to install the dependancy.
+
 ## Operation
 
 The module will receive notifications from the `MMM-BackgroundSlideshow` module on image changes, then load and parse the EXIF data using node-exif.  The EXIF data is then available for the module to format and display.  You can configure the fields to display via the config.js.

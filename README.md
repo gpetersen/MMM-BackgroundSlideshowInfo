@@ -2,7 +2,7 @@
 
 Shows EXIF info for images loaded in the MMM-BackgroundSlideShow module
 
-The `MMM-BackgroundSlideshowInfo` module is designed to work with the `MMM-BackgroundSlideshow` module to display EXIF data such as the date the picture was taken, camera, photo settings, and any other metadata that might be attached to the image.
+The `MMM-BackgroundSlideshowInfo` module is designed to work with the `MMM-BackgroundSlideshow` module to display EXIF data such as the date the picture was taken, camera, photo settings, and any other metadata that might be attached to the image.  It's designed as a separate module so you can place it where it makese sense.
 
 TODO: Include screenshots
 
@@ -20,9 +20,9 @@ The module will receive notifications from the `MMM-BackgroundSlideshow` module 
 
 Until the original `MMM-BackgroundSlideshow` module updates their code, you will also need an updated version of `MMM-BackgroundSlideshow` found below.  You need this module in addition to `MMM-BackgroundSlideShowInfo`.
 
-Use Git to download. Make sure Git is installed on your system. In the command line/terminal, go to the modules directory of the your Magic Mirror install. 
-Run: `git clone https://github.com/gpetersen/MMM-BackgroundSlideshow.git`.  
-Then run: `git clone https://github.com/gpetersen/MMM-BackgroundSlideshowInfo.git`. 
+Use Git to download. Make sure Git is installed on your system. In the command line/terminal, go to the modules directory of the your Magic Mirror install.
+
+Run: `git clone https://github.com/gpetersen/MMM-BackgroundSlideshow.git` (This version is needed so it will send notifications when the image changes).  Then run: `git clone https://github.com/gpetersen/MMM-BackgroundSlideshowInfo.git`. 
 The advantage of using Git is when there is an update, you can run 'git pull' and it will pull down all the updates. Magic Mirror can even let you know when there are updates.
 
 Add the module to the modules array in the `config/config.js` file:
@@ -30,7 +30,8 @@ Add the module to the modules array in the `config/config.js` file:
 ```javascript
 modules: [
   {
-    module: 'MMM-BackgroundSlideshowInfo',
+		module: 'MMM-BackgroundSlideshowInfo',
+    header: "Picture Info",
     position: 'bottom_bar',
     config: {
       //...TODO Add more config options
@@ -40,10 +41,14 @@ modules: [
 
 
 ```
-TODO: Edit below
+
+## Known Issues
+
+TODO: Add issues
 
 ## Configuration options
 
+TODO: Add config options
 The following properties can be configured:
 
 <table width="100%">
@@ -56,7 +61,7 @@ The following properties can be configured:
 	<thead>
 	<tbody>
 		<tr>
-			<td><code>imagePaths</code></td>
+			<td><code>header</code></td>
 			<td>Array value containing strings. Each string should be a path to a directory where image files can be found.<br>
 				<br><b>Example:</b> <code>['modules/MMM-ImageSlideshow/example1']</code>
 				<br>This value is <b>REQUIRED</b>

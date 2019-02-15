@@ -25,6 +25,7 @@ module.exports = NodeHelper.create({
 
         var imageUrl = decodeURIComponent(payload.url); 
         var imageUri = imageUrl.replace("http://localhost:8080/",""); //TODO: Fixup later for other possible URLs
+        imageUri = imageUri.replace("http://0.0.0.0:8080/",""); // For default RPi config per https://github.com/gpetersen/MMM-BackgroundSlideshowInfo/issues/4
         var imagePath = mmPath + imageUri;
         //imagePath = imagePath.replace("//g","\\"); // mixed Slash direction doesn't matter when running on Windows..
         

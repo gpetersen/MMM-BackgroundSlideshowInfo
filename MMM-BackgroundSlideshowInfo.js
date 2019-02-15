@@ -10,7 +10,7 @@ Module.register("MMM-BackgroundSlideshowInfo",{
         formatDate: "YYYY MMMM Do",
         showMake: false,
         showModel: true,
-        showGPS: true,
+        showGPS: false,
         showGPSFields: ['name','countryCode','adminName1'],
         geonameUser: "",
         showCustom: [], //showCustom: ['image.Model','exif.ISO','exif.DateTimeOriginal'], //ExifImage object model below:

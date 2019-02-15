@@ -61,19 +61,91 @@ The following properties can be configured:
 	<thead>
 	<tbody>
 		<tr>
-			<td><code>header</code></td>
-			<td>Array value containing strings. Each string should be a path to a directory where image files can be found.<br>
-				<br><b>Example:</b> <code>['modules/MMM-ImageSlideshow/example1']</code>
-				<br>This value is <b>REQUIRED</b>
-			</td>
-		</tr>
-		<tr>
-			<td><code>slideshowSpeed</code></td>
-			<td>Integer value, the length of time to show one image before switching to the next, in milliseconds.<br>
-				<br><b>Example:</b> <code>6000</code> for 6 seconds
-				<br><b>Default value:</b> <code>10000</code> or 10 seconds
+			<td><code>showFolderNames</code></td>
+			<td>Boolean value, true to show folder names in the path to the picture, often more useful than the filename.  You can then filter the list to ignore/trim paths that are generic or not useful to show like 'pictures'<br>
+				<br><b>Example:</b> <code>showFolderNames: false,</code>
+				<br><b>Default value:</b> <code>true</code>
 				<br>This value is <b>OPTIONAL</b>
 			</td>
 		</tr>
-    </tbody>
+		<tr>
+			<td><code>ignoreFolderNames</code></td>
+			<td>Array value containing strings. Each string should specify a folder name in the path to the images.  The names of these folders will not be displayed.<br>
+				<br><b>Example:</b> <code>ignoreFolderNames: ['modules','pictures','MMM-BackgroundSlideshow'],</code>
+				<br>This value is <b>OPTIONAL</b>
+			</td>
+		</tr>
+		<tr>
+			<td><code>showFileName</code></td>
+			<td>Boolean value, true to show file names of the picture, often not useful.<br>
+				<br><b>Example:</b> <code>showFileName: true,</code>
+				<br><b>Default value:</b> <code>false</code>
+				<br>This value is <b>OPTIONAL</b>
+			</td>
+		</tr>
+		<tr>
+			<td><code>showCreateDate</code></td>
+			<td>Boolean value, true to show the date the picture was created per the parsed Exif data in the picture.  This date is formatted using formatDate below.<br>
+				<br><b>Example:</b> <code>showCreateDate: true,</code>
+				<br><b>Default value:</b> <code>true</code>
+				<br>This value is <b>OPTIONAL</b>
+			</td>
+		</tr>
+		<tr>
+			<td><code>formatDate</code></td>
+			<td>Format for any dates retrieved from Exif data.<br>
+				<br><b>Example:</b> <code>formatDate: "YYYY MMMM Do",</code>
+				<br><b>Default value:</b> <code>"YYYY MMMM Do"</code> 2001 January 5th
+				<br>This value is <b>OPTIONAL</b>
+			</td>
+		</tr>
+		<tr>
+			<td><code>showMake</code></td>
+			<td>Boolean value, true to show the camera Make from Exif data. NOTE: Often the make is included in the model below, so it's disabled by default.<br>
+				<br><b>Example:</b> <code>showMake: true,</code>
+				<br><b>Default value:</b> <code>false</code> 
+				<br>This value is <b>OPTIONAL</b>
+			</td>
+		</tr>
+		<tr>
+			<td><code>showModel</code></td>
+			<td>Boolean value, true to show the camera Model from Exif data. NOTE: Often the make is included in the Model Exif data as well.<br>
+				<br><b>Example:</b> <code>showMake: false,</code>
+				<br><b>Default value:</b> <code>true</code> 
+				<br>This value is <b>OPTIONAL</b>
+			</td>
+		</tr>
+		<tr>
+			<td><code>showGPS</code></td>
+			<td>Boolean value, true to show the GPS location from Exif data using a geoname lookup.  NOTE: You must specify a geonameUser if you use this feature. http://www.geonames.org/<br>
+				<br><b>Example:</b> <code>showGPS: false,</code>
+				<br><b>Default value:</b> <code>false</code> 
+				<br>This value is <b>OPTIONAL</b>
+			</td>
+		</tr>
+		<tr>
+			<td><code>showGPSFields</code></td>
+			<td>Array value containing strings. Each string should specify the geoname field names to be displayed. http://www.geonames.org/<br>
+				<br><b>Example:</b> <code>showGPSFields: ['name','countryCode','adminName1'],</code>
+				<br><b>Default value:</b> <code>['name','countryCode','adminName1']</code> 
+				<br>This value is <b>OPTIONAL</b>
+			</td>
+		</tr>
+		<tr>
+			<td><code>geonameUser</code></td>
+			<td>String value, specifies the username requred to use http://www.geonames.org/ if using the showGPS feature.<br>
+				<br><b>Example:</b> <code>geonameUser: "xyz",</code> You must register for an ID here: http://www.geonames.org/
+				<br><b>Default value:</b> <code>''</code> 
+				<br>This value is <b>MANDATORY</b> Only Mandatory if using showGPS.
+			</td>
+		</tr>
+		<tr>
+			<td><code>showCustom</code></td>
+			<td>Array value containing strings. Each string should specify path to a field in the ExifImage object model.  NOTE: Dates will be formatted using the format provided in formatDate.<br>
+				<br><b>Example:</b> <code>showCustom: ['exif.FNumber','exif.ISO','exif.DateTimeOriginal'],</code>
+				<br><b>Default value:</b> <code>[]</code> 
+				<br>This value is <b>MANDATORY</b>
+			</td>
+		</tr>
+
 </table>

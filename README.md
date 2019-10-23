@@ -36,8 +36,8 @@ modules: [
     header: "Picture Info",
     position: 'bottom_bar',
     config: {
-       ignoreFolderNames: ['modules','pictures','MMM-BackgroundSlideshow']
-			 geonameUser: "xyz",
+       ignoreFolderNames: ['modules','pictures','MMM-BackgroundSlideshow'],
+       geonameUser: "xyz",
        //showCustom: ['image.Model','exif.ISO','exif.DateTimeOriginal'],
        showFolderNames: true,
        showFileName: false,

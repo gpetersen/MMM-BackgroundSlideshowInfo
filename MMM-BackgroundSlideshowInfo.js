@@ -207,16 +207,15 @@ Module.register("MMM-BackgroundSlideshowInfo",{
             }
             location.innerHTML = locationInfo;
         }
-
+        var customInfo = "";
         for(configIndex in this.config.showCustom){
             var custom = document.getElementById("BGSS_CUSTOM");
             var configKey = this.config.showCustom[configIndex];
             var value = this.extract(configKey,this.exifData);
-            var customInfo = "";
             if(configKey.includes("Date")){
                 value = moment(this.parseExifDate(value)).format(this.config.formatDate);
             }
-            customInfo = customInfo + value;
+            customInfo = customInfo + value +" ";
             custom.innerHTML = customInfo;
         }
 

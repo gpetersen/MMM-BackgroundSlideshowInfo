@@ -78,7 +78,7 @@ module.exports = NodeHelper.create({
              if (this.extract('gps.GPSLongitudeRef',this.exifData) == "W")
                 lng = lng * -1;
              console.log("[BACKGROUNDSLIDESHOWINFO] Getting Geonames for lat/lng: " + lat + "/" + lng);
-             request({  url: 'http://api.geonames.org/findNearbyJSON?lat='+ lat +'&lng='+ lng +'&username=' + self.geonameUser,
+             request({  url: 'http://api.geonames.org/findNearbyJSON?lat='+ lat +'&lng='+ lng +'&username=' + self.geonameUser + '&lang=' + config.language ,
                         method: 'GET' }, (error, response, body) => {
                             //console.log("[BACKGROUNDSLIDESHOWINFO] Response: " + response);
                             //console.log("[BACKGROUNDSLIDESHOWINFO] Body: " + body);
